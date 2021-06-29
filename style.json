@@ -96,7 +96,8 @@
       "source": "openmaptiles",
       "source-layer": "waterway",
       "layout": {"visibility": "visible"},
-      "paint": {"line-color": "rgba(209, 231, 234, 1)"}
+      "paint": {"line-color": "rgba(209, 231, 234, 1)",
+                "line-width": 2}
     }
   ],
   "id": "y95juvvk3"
