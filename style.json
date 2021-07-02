@@ -1,0 +1,94 @@
+{
+  "version": 8,
+  "name": "Empty Style",
+  "metadata": {"maputnik:renderer": "mbgljs"},
+  "light": {"anchor": "map"},
+  "sources": {
+    "openmaptiles": {
+      "type": "vector",
+      "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=MNQuHqIDC7oXLHixKplS"
+    }
+  },
+  "sprite": "",
+  "glyphs": "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "Background",
+      "type": "background",
+      "paint": {"background-color": "rgba(255, 255, 255, 1)"}
+    },
+    {
+      "id": "River",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "waterway",
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(209, 231, 234, 1)"}
+    },
+    {
+      "id": "Water",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "water",
+      "paint": {
+        "fill-color": "rgba(209, 231, 234, 1)",
+        "fill-outline-color": "rgba(0, 0, 0, 0)",
+        "fill-opacity": 1
+      }
+    },
+    {
+      "id": "Boundary",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "boundary",
+      "layout": {"visibility": "none"},
+      "paint": {"line-color": "rgba(0, 2, 7, 1)"}
+    },
+    {
+      "id": "Roads",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "any",
+        ["==", "class", "primary"],
+        ["==", "class", "motorway"],
+        ["==", "class", "secondary"],
+        ["==", "class", "trunk"],
+        ["==", "class", "tertiary"],
+        ["==", "class", "minor"],
+        ["==", "class", "path"],
+        ["==", "class", "service"],
+        ["==", "class", "track"],
+        ["==", "class", "raceway"],
+        ["==", "class", "motorway_construction"],
+        ["==", "class", "trunk_construction"],
+        ["==", "class", "primary_construction"],
+        ["==", "class", "secondary_construction"],
+        ["==", "class", "tertiary_construction"],
+        ["==", "class", "minor_construction"],
+        ["==", "class", "path_construction"],
+        ["==", "class", "service_construction"],
+        ["==", "class", "track_construction"],
+        ["==", "class", "raceway_construction"]
+      ],
+      "layout": {"visibility": "visible"}
+    },
+    {
+      "id": "Builtup",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "building",
+      "paint": {"fill-color": "rgba(231, 231, 231, 1)"}
+    },
+    {
+      "id": "Waterways",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "waterway",
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(209, 231, 234, 1)"}
+    }
+  ],
+  "id": "y95juvvk3"
+}
