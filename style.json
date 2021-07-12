@@ -1,0 +1,110 @@
+{
+  "version": 8,
+  "name": "Map",
+  "metadata": {"maputnik:renderer": "mbgljs"},
+  "center": [74.4841880408477, 36.07944873665109],
+  "zoom": 9.844354572227182,
+  "bearing": 0,
+  "pitch": 0,
+  "light": {"anchor": "map"},
+  "sources": {
+    "contours": {
+      "type": "vector",
+      "url": "https://api.maptiler.com/tiles/contours/tiles.json?key=MNQuHqIDC7oXLHixKplS"
+    },
+    "openmaptiles": {
+      "type": "vector",
+      "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=MNQuHqIDC7oXLHixKplS"
+    }
+  },
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=MNQuHqIDC7oXLHixKplS",
+  "layers": [
+    {
+      "id": "Background",
+      "type": "background",
+      "paint": {"background-color": "rgba(255, 255, 255, 1)"}
+    },
+    {
+      "id": "River",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "waterway",
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(209, 231, 234, 1)"}
+    },
+    {
+      "id": "Water",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "water",
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(209, 231, 234, 1)",
+        "fill-opacity": 1,
+        "fill-outline-color": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "id": "Boundary",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "boundary",
+      "layout": {"visibility": "visible"},
+      "paint": {"line-color": "rgba(0, 2, 7, 1)"}
+    },
+    {
+      "id": "Roads",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "any",
+        ["==", "class", "motorway"],
+        ["==", "class", "secondary"],
+        ["==", "class", "trunk"],
+        ["==", "class", "tertiary"],
+        ["==", "class", "minor"],
+        ["==", "class", "path"],
+        ["==", "class", "service"],
+        ["==", "class", "track"],
+        ["==", "class", "raceway"],
+        ["==", "class", "motorway_construction"],
+        ["==", "class", "trunk_construction"],
+        ["==", "class", "primary_construction"],
+        ["==", "class", "secondary_construction"],
+        ["==", "class", "tertiary_construction"],
+        ["==", "class", "minor_construction"],
+        ["==", "class", "path_construction"],
+        ["==", "class", "service_construction"],
+        ["==", "class", "track_construction"],
+        ["==", "class", "raceway_construction"]
+      ],
+      "layout": {"visibility": "visible"}
+    },
+    {
+      "id": "Builtup",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "building",
+      "minzoom": 0,
+      "paint": {"fill-color": "rgba(240, 240, 240, 1)"}
+    },
+    {
+      "id": "Primary roads",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": ["all", ["==", "class", "primary"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"line-width": 2}
+    },
+    {
+      "id": "Contour",
+      "type": "line",
+      "source": "contours",
+      "source-layer": "contour",
+      "paint": {"line-color": "rgba(197, 197, 197, 1)"}
+    }
+  ],
+  "id": "dc537d4d-248f-48a3-ac83-906a5c204aac"
+}
